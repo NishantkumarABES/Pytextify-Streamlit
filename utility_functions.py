@@ -2,8 +2,8 @@ from youtube_transcript_api import YouTubeTranscriptApi
 import gensim
 from gensim import corpora
 
-from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords
+# from nltk.tokenize import word_tokenize
+# from nltk.corpus import stopwords
 
 # import nltk
 # nltk.download('stopwords')
