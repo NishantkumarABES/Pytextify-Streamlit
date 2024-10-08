@@ -28,7 +28,7 @@ def split_audio_by_duration(audio_path, chunk_duration_ms=30000):
         end = start + chunk_duration_ms
         chunk = audio[start:end]
         # Export the chunk as a .wav file
-        chunk_name = chunk_path + "\\" + f"chunk_{i}.wav"
+        chunk_name = chunk_path + "/" + f"chunk_{i}.wav"
         chunk.export(chunk_name, format="wav")
         chunks.append(chunk_name)
 
@@ -66,24 +66,9 @@ def video_to_text(video_path, chunk_duration_ms=30000):
 
     chunk_path = "chunks"
     for chunk_file in os.listdir(chunk_path):
-        os.remove(chunk_path + "\\" + chunk_file)
+        os.remove(chunk_path + "/" + chunk_file)
     os.remove(audio_path)
 
     return full_text.strip()
 
 
-# Example usage
-# video_dir = r"C:\Users\QSS\Desktop\Utility Codes\KT-recordings(mp4)"
-# chunk_path = video_dir + "\\" + "chunks"
-# file_names = os.listdir(video_dir)
-# os.mkdir(chunk_path)
-# for file_name in file_names:
-#     text_file_path = video_dir + "\\" + file_name[:-4] + ".txt"
-#     video_path = video_dir + "\\" + file_name
-#     text = video_to_text(video_path)
-#     with open(text_file_path, "w") as text_file:
-#         text_file.write(text)
-#     audio_path = video_path[:-4] + ".wav"
-#     for chunk_file in os.listdir(chunk_path):
-#         os.remove(chunk_path + "\\" + chunk_file)
-#     os.remove(audio_path)
