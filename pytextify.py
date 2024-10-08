@@ -4,7 +4,7 @@ from utility_functions import extract_transcript_from_youtube
 
 
 def main_app():
-    st.image(r"images\logo_path.png", width=200)
+    st.image(r"images/logo_path.png", width=200)
     st.title("Welcome to PyTextify")
     # st.subheader("Transforming Media into Meaning – Fast, Accurate, Insightful!")
 
