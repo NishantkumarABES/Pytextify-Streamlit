@@ -14,15 +14,27 @@ def main_app():
     # Tab 1: File Upload
     with tab1:
         st.subheader("Upload Files for Transcription & Summarization")
+        
+        # File uploader for video, PDF, DOCX, or image
         uploaded_file = st.file_uploader("Choose a video, PDF, DOCX, or image", type=["mp4", "pdf", "docx", "jpg", "png"])
 
         if uploaded_file is not None:
+            # Save the uploaded file locally
             with open("uploaded_file.mp4", "wb") as f:
                 f.write(uploaded_file.getbuffer())
 
+            # Display the video
             st.video("uploaded_file.mp4")  
             st.write("Processing your file...")
-            summary = video_to_text("uploaded_file.mp4")
+
+            # Optional text area for video details or description
+            video_description = st.text_area("Provide additional details or description for the uploaded video (optional)")
+
+            if video_description:
+                st.write("Video Description: ", video_description)
+
+            # Process the video and generate a summary
+            summary = video_to_text("uploaded_file.mp4")  # Function to convert video to text and summarize
             st.success(summary)
 
             # Show Q&A panel after file upload
