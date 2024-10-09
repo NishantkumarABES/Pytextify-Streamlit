@@ -51,6 +51,8 @@ def audio_to_text(audio_chunk):
 
 # Function to convert video to text (processing smaller chunks of audio in threads)
 def video_to_text(video_path, chunk_duration_ms=30000):
+    
+    if not(os.path.exists("chunks")): os.mkdir("chunks")
     # Step 1: Convert video to audio
     audio_path = video_path[:-4] + ".wav"
     video_to_audio(video_path, audio_path)
