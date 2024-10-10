@@ -4,6 +4,7 @@ from utility_functions import extract_transcript_from_youtube
 
 
 def main_app():
+    st.set_page_config(page_title="PyTextify", layout="wide", page_icon=":material/home:")
     st.image(r"images/logo_path.png", width=200)
     st.title("Welcome to PyTextify")
     # st.subheader("Transforming Media into Meaning – Fast, Accurate, Insightful!")
